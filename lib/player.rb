@@ -3,11 +3,12 @@
 class Player 
 
 	attr_reader :name
-	attr_accessor :board, :game
+	attr_accessor :board, :game, :ships
 	
 	def initialize(name= "NoName", board_size)
 		@board = Board.new(board_size)
 		@name = name
+		@ships = [Destroyer.new, YellowSubmarine.new, PatrolBoat.new, BattleShip.new, AircraftCarrier.new]
 	end
 
 	def join_game(game)

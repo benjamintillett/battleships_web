@@ -21,6 +21,13 @@ describe Player do
 			player.join_game(game)
 			expect(player.game.class).to eq Game
 		end
+		it "has a destroyer" do 
+			expect(player.ships.first).to be_a(Destroyer)
+		end
+		it "has five ships" do 
+			expect(player.ships.length).to eq 5 
+		end
+
 
 	end
 
