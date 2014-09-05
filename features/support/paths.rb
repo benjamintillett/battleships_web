@@ -15,6 +15,10 @@ module NavigationHelpers
 
     when /register a player/
       'register_player'
+
+    when /delete game/
+      '/delete_game'
+
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #

@@ -23,14 +23,8 @@ Feature: Starting the game
     Then I should see "Congratulations Blondie, you have joined the game"
 
   Scenario: Registering a second player from the same browser
-    When I am in Princes browser
-    Given I am on the homepage
-    When I follow "Join a game"
-    Then I should see "Whats your name?"
-    When I fill in "name" with "Prince"
-    And I press "Register Player"
-    Then I should see "Congratulations Prince, you have joined the game"
-  	And I am on the homepage
+    Given I have registered prince
+    And I am on the homepage
   	Then I should not see "Join a game"
 
 

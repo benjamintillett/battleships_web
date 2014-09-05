@@ -1,5 +1,13 @@
 <%= session.inspect %>
 
-<%= erb :players_partial %>
+<form name="delete_game" action="/delete_game" method="post">
+<input type="submit" value="Delete Game">
+</form>
+
+<p><%= erb :players_partial %></p>
+
+
 
 <%= yield %>
+
+

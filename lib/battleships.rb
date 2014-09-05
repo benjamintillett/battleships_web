@@ -5,6 +5,10 @@ class GameData
 	def initialize
 		@players = []
 	end
+
+	def delete!
+		@players = []
+	end
 end
 
 
@@ -36,6 +40,12 @@ class BattleShips < Sinatra::Base
 		erb :player
 	end
 
+	post '/delete_game' do 
+		delete_game
+		erb :delete
+	end
+
+
 	def add_player_to_session
 		session[:player] = params[:name]
 	end
@@ -46,10 +56,13 @@ class BattleShips < Sinatra::Base
 	end 
 
 	def registered?
-		puts 'XXXXXX'*10
-		puts session.inspect
-		puts 'XXXXXX'*10
 		session[:player]
+	end
+
+	def delete_game
+		GAMEDATA.delete!
+		@player1 = nil
+		@player2 = nil
 	end
 
 

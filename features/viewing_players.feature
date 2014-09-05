@@ -14,13 +14,7 @@ Feature: Viewing Players
   		Then I should see "Player 1: Prince"
 
   	Scenario: Viewing two players
-  		When I am in Princes browser
-    	Given I am on the homepage
-	    When I follow "Join a game"
-	    Then I should see "Whats your name?"
-	    When I fill in "name" with "Prince"
-	    And I press "Register Player"
-	    Then I should see "Congratulations Prince, you have joined the game"
+  		Given I have registered prince
   		When I am in Blondies browser
 	  	When I go to "register a player"
 	  	Then I should see "Whats your name?"
