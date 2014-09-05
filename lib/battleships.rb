@@ -16,6 +16,10 @@ class BattleShips < Sinatra::Base
 
 	GAMEDATA = GameData.new
 
+	before do 
+		@player1 = GAMEDATA.players[0]
+		@player2 = GAMEDATA.players[1]
+	end
 
 	get '/' do
 		erb :index
@@ -37,8 +41,16 @@ class BattleShips < Sinatra::Base
 	end
 
 	def add_player_to_game_data
-		GAMEDATA.players << session[:player]
+		GAMEDATA.players << params[:name]
+		puts GAMEDATA.inspect
 	end 
+
+	def registered?
+		puts 'XXXXXX'*10
+		puts session.inspect
+		puts 'XXXXXX'*10
+		session[:player]
+	end
 
 
 
