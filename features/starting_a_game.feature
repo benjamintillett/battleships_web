@@ -9,4 +9,4 @@ Feature: Registering for a game
   Scenario: Starting a game
   	Given I am on the homepage
   	And I press "Start Game"
-  	Then I should see "Let Battleships commence!"
+  	# Then I should see 

@@ -10,3 +10,5 @@ Feature: deleting a game
 		And I press "Delete Game"
 		Then I should see "You have successfully deleted the game"
 		And I should not see "Player 1: Prince"
+
+		

@@ -5,10 +5,10 @@ class Game
 attr_accessor  :player1, :player2
 
 
- 	def initialize(size)
-		@player1 = Player.new("Player1",size)
+ 	def initialize(size,player1,player2)
+		@player1 = Player.new(player1,size)
 		@player1.join_game(self)
-		@player2 = Player.new("Player2",size)
+		@player2 = Player.new(player2,size)
 		@player2.join_game(self)
 		@ready = false
 	end
