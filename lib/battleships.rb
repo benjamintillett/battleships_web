@@ -21,8 +21,7 @@ class BattleShips < Sinatra::Base
 	GAMEDATA = GameData.new
 
 	before do 
-		@player1 = GAMEDATA.players[0]
-		@player2 = GAMEDATA.players[1]
+		set_player_instance_variables
 	end
 
 	get '/' do
@@ -45,6 +44,10 @@ class BattleShips < Sinatra::Base
 		erb :delete
 	end
 
+	post '/game' do 
+		"Let Battleships commence!"
+	end
+
 
 	def add_player_to_session
 		session[:player] = params[:name]
@@ -53,6 +56,7 @@ class BattleShips < Sinatra::Base
 	def add_player_to_game_data
 		GAMEDATA.players << params[:name]
 		puts GAMEDATA.inspect
+		set_player_instance_variables
 	end 
 
 	def registered?
@@ -64,6 +68,12 @@ class BattleShips < Sinatra::Base
 		@player1 = nil
 		@player2 = nil
 	end
+
+	def set_player_instance_variables
+		@player1 = GAMEDATA.players[0]
+		@player2 = GAMEDATA.players[1]
+	end
+
 
 
 

@@ -11,5 +11,4 @@ class AircraftCarrier < Ship
 		@name = "Aircraft Carrier"
 	end
 
-
 end
