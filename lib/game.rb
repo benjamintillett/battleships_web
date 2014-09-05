@@ -5,11 +5,13 @@ class Game
 attr_accessor  :player1, :player2
 
 
- 	def initialize(size,player1,player2)
-		@player1 = Player.new(player1,size)
-		@player1.join_game(self)
-		@player2 = Player.new(player2,size)
-		@player2.join_game(self)
+ 	def initialize(size)
+		# @player1 = Player.new(player1,size)
+		# @player1.join_game(self)
+		# @player2 = Player.new(player2,size)
+		# @player2.join_game(self)
+		@player1 = nil
+		@player2 = nil
 		@ready = false
 	end
 
@@ -57,6 +59,16 @@ attr_accessor  :player1, :player2
 	def print_shot_request(player)
 		puts "#{player1.name}'s choose which of #{player2.name}'s cells to shoot at" if player == player2
      	puts "#{player2.name}'s choose which of #{player1.name}'s cells to shoot at" if player == player1
+    end
+
+    def add_player(player)
+    	if !self.player1 
+    		self.player1 = player 
+    	elsif !self.player2 
+    		self.player2 = player
+    	else 
+    		raise "The game is full!"
+    	end
     end
 
 end

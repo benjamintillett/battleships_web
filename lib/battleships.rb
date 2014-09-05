@@ -1,3 +1,5 @@
+Dir["./lib/*.rb"].each { |file| require file }
+
 class GameData
 	
 	attr_accessor :players
@@ -19,7 +21,7 @@ class BattleShips < Sinatra::Base
 	enable :sessions
 
 	GAMEDATA = GameData.new
-
+	GAME = Game.new
 	before do 
 		set_player_instance_variables
 	end
